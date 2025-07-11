@@ -1,77 +1,88 @@
-# 🍷 Clasificación de Calidad de Vino - Machine Learning
+# 🍷 Clasificación de Calidad de Vino — Proyecto de Machine Learning
 
-Este proyecto aplica técnicas de clasificación para predecir la calidad del vino tinto utilizando variables físico-químicas. A través del análisis exploratorio, preprocesamiento, entrenamiento y evaluación de modelos, buscamos identificar qué características influyen en la percepción de calidad.
+Este proyecto utiliza técnicas de clasificación y regresión para predecir la calidad del vino tinto a partir de características físico-químicas. Aplicamos modelos como Regresión Lineal, KNN y Random Forest, acompañados de métricas, visualizaciones y análisis comparativos.
 
 ---
 
 ## 🎯 Objetivo
 
-Utilizar técnicas de clasificación aprendidas hasta el momento para predecir la **calidad del vino** basándose en sus propiedades físico-químicas. Esto permite aplicar:
+Aplicar conceptos clave de machine learning para predecir la calidad del vino utilizando:
 
 - Selección de características
 - Preprocesamiento de datos
-- Entrenamiento y evaluación de modelos
-- Interpretación de métricas
-- Visualización de resultados
+- Entrenamiento de modelos
+- Evaluación con métricas de clasificación
+- Análisis visual y comparativo
 
 ---
 
 ## 📂 Dataset
 
 **Wine Quality Dataset**  
-Disponible en [UCI Machine Learning Repository](https://archive.ics.uci.edu/ml/datasets/Wine+Quality)
+Fuente: [UCI Machine Learning Repository](https://archive.ics.uci.edu/ml/datasets/Wine+Quality)
 
 ### 🔬 Descripción
 
-Contiene observaciones de vino tinto con variables como:
+Este conjunto de datos incluye variables físico-químicas de muestras de vino tinto como:
 
-- Acidez fija, acidez volátil, ácido cítrico
-- Azúcar residual, cloruros, SO₂ libre y total
-- Densidad, pH, sulfatos, alcohol
-- **Quality**: variable objetivo en una escala de 0 a 10
+- Acidez fija, acidez volátil, ácido cítrico  
+- Azúcar residual, cloruros, dióxido de azufre libre y total  
+- Densidad, pH, sulfatos, alcohol  
+- `quality`: variable objetivo (escala 0–10)
 
 ---
 
-## 🧪 Instrucciones de desarrollo
+## ⚙️ Instrucciones del proyecto
 
 ### 1️⃣ Carga y Exploración de Datos
 
-- Importar y revisar la estructura del dataset
-- Analizar distribuciones y relaciones entre variables
-- Tratar valores nulos y detectar outliers
+- Cargar y revisar estructura del dataset  
+- Analizar distribuciones y detectar outliers  
+- Tratar valores nulos si existen
 
-### 2️⃣ Preprocesamiento de Datos
+### 2️⃣ Preprocesamiento
 
-- Seleccionar variables predictoras más relevantes
-- Transformar categóricas en numéricas si aplica
-- Dividir en conjunto de entrenamiento y prueba
-- Escalar las variables numéricas
+- Selección de variables predictoras  
+- Escalado de características numéricas  
+- División en conjuntos de entrenamiento y prueba
 
 ### 3️⃣ Entrenamiento de Modelos
 
-Se entrenaron 3 modelos de clasificación:
+- Se entrenaron tres modelos:
+  - Regresión Lineal (`LinearRegression`)
+  - K-Nearest Neighbors (`KNeighborsRegressor`)
+  - Random Forest (`RandomForestClassifier`)
 
-- `Regresión Logística`
-- `K-Nearest Neighbors (KNN)`
-- `Random Forest Classifier`
+- Se aplicó validación cruzada y optimización de hiperparámetros (`GridSearchCV`)
 
-### 4️⃣ Comparación y Análisis
 
-- **KNN mostró el menor error promedio (MSE = 0.3789)** → predicciones más precisas
-- **KNN también logró el mayor R² (0.3753)** → mejor capacidad explicativa
-- **Random Forest** tuvo desempeño intermedio pero es más robusto ante ruido y no linealidades
-- **Regresión Lineal** fue clara y rápida pero limitada en precisión
+## 4️⃣  Resultados comparativos
 
-#### 🔍 Fortalezas por modelo
-
-| Modelo               | Fortalezas                          | Debilidades                              |
-|----------------------|-------------------------------------|------------------------------------------|
-| Regresión Lineal     | Muy interpretable, rápida           | No capta relaciones complejas            |
-| KNN Regressor        | Flexible, buen rendimiento          | Sensible al ruido y escalado             |
-| Random Forest Class. | Robusto, excelente para clasificación | Menos interpretable, más costoso         |
+| Modelo                  | MSE ↓       | R² ↑        |
+|--------------------------|-------------|-------------|
+| Regresión Lineal         | 0.4071      | 0.3288      |
+| Random Forest Classifier | **0.3186**  | **0.4746**  |
+| KNN Regressor            | 0.3789      | 0.3753      |
 
 ---
 
+### 🥇 Análisis general
+
+- **Random Forest** logró el menor MSE y el mayor R², mostrando excelente capacidad de predicción y explicabilidad de la calidad del vino.
+- **KNN** obtuvo métricas competitivas, destacando como modelo flexible y eficaz en estimaciones puntuales.
+- **Regresión Lineal** fue rápida y clara, ideal como modelo base interpretativo, aunque limitada ante relaciones no lineales.
+
+---
+
+### 🔍 Fortalezas por modelo
+
+| Modelo                  | Fortalezas                                   | Debilidades                                  |
+|--------------------------|----------------------------------------------|----------------------------------------------|
+| Regresión Lineal         | Fácil de interpretar, rápida                 | No capta relaciones complejas                |
+| KNN Regressor            | Flexible, buen rendimiento local             | Sensible al escalado y ruido                 |
+| Random Forest Classifier | Robusto, excelente rendimiento clasificatorio| Requiere mayor capacidad computacional       |
+
+---
 ## 🗃️ Repositorio y Liberación
 
 - Código y análisis disponibles en este repositorio
@@ -79,6 +90,7 @@ Se entrenaron 3 modelos de clasificación:
 - Tag de liberación: `v1.0` — primera versión estable con resultados completos
 
 ---
+
 
 
 
